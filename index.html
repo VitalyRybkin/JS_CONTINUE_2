@@ -1,68 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Homework 5</title>
+</head>
+
+<body>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HW 1</title>
+    <title>Homework 5</title>
 </head>
 <body>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-    
-    <div class="card" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title" data-number="100">Card title</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-
-            <p class="card-text" data-number="50">
-            Some quick example text to build on the card title and make up the bulk of the card's
-            content.
-            </p>
-
-            <a href="#" id="super_link" class="card-link">Card link</a>
-            <a href="#" class="card-link" data-number="50">Another link</a>
+    <p class="dropdown">Привет :)</p>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Dropdown button
+        </button>
+        <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
         </div>
     </div>
-    
-    <script>
-        // 1. Найти по id, используя getElementById, элемент с id равным "super_link" и вывести этот элемент в консоль.
-            console.log("1. Найти по id, используя getElementById, элемент с id равным 'super_link' и вывести этот элемент в консоль.");
-            const cardLink = document.getElementById("super_link");
-            console.log(cardLink);
-        // 2. Внутри всех элементов на странице, которые имеют класс "card-link", поменяйте текст внутри элемента на "ссылка".
-            console.log("2. Внутри всех элементов на странице, которые имеют класс 'card-link', поменяйте текст внутри элемента на 'ссылка'");
-            const cardLinkArr = document.querySelectorAll(".card-link");
-            for (let i = 0; i < cardLinkArr.length; i++){
-                console.log(cardLinkArr[i].textContent);
-                cardLinkArr[i].textContent = "сcылка";
-                console.log(cardLinkArr[i].textContent);
-            }
-        // 3. Найти все элементы на странице с классом "card-link", которые лежат в элементе с классом "card-body" и вывести полученную коллекцию в консоль.
-            console.log("3. Найти все элементы на странице с классом 'card-link', которые лежат в элементе с классом 'card-body' и вывести полученную коллекцию в консоль.");
-            const cardLinkCardBodyArr = document.querySelectorAll(".card-body .card-link");
-            for (let i = 0; i < cardLinkCardBodyArr.length; i++){
-                console.log(cardLinkCardBodyArr[i]);
-            }       
-        // 4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.
-            console.log("4. Найти первый попавшийся элемент на странице у которого есть атрибут data-number со значением 50 и вывести его в консоль.");
-            const dataNumber = document.querySelector("[data-number='50']");
-            console.log(dataNumber);
-        // 5. Выведите содержимое тега title в консоль.
-            console.log("5. Выведите содержимое тега title в консоль.");
-            const titleText = document.querySelector("title");
-            console.log(titleText.textContent);
-        // 6. Получите элемент с классом "card-title" и выведите его родительский узел в консоль.
-            console.log("6. Получите элемент с классом 'card-title' и выведите его родительский узел в консоль.");
-            const cardTitleParent = document.querySelector(".card-title").parentElement;
-            console.log(cardTitleParent)
-        // 7. Создайте тегp`, запишите внутри него текст "Привет" и добавьте созданный тег в начало элемента, который имеет класс "card".
-            console.log("7. Создайте тег p, запишите внутри него текст 'Привет' и добавьте созданный тег в начало элемента, который имеет класс 'card'");
-            const newParagraph = document.createElement("p");
-            newParagraph.textContent = "Hello!";
-            const newParagraphParent = document.querySelector(".card");
-            newParagraphParent.prepend(newParagraph);
-            console.log(newParagraphParent);
 
+    <script>
+        // 1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс "super-dropdown", необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов.
+            console.log("1. Ко всем элементам, имеющим класс 'dropdown-item' добавить еще один класс 'super-dropdown', необходимо использовать методы forEach и querySelectorAll и свойство classList у элементов.")
+            const dropdownItemCls = document.querySelectorAll(".dropdown-item")
+            console.log(dropdownItemCls)
+            dropdownItemCls.forEach(element => {
+                element.classList.add("super-dropdown")
+            });
+            console.log(dropdownItemCls)
+            
+        // 2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он присутствует у этого элемента, либо добавить, если такого класса у элемента не было.
+            console.log("2. У элемента с классом btn необходимо убрать класс 'btn-secondary,' если он присутствует у этого элемента, либо добавить, если такого класса у элемента не было.")
+            let btnClassHandling = document.querySelectorAll(".btn")
+            console.log(btnClassHandling)
+            btnClassHandling.forEach(element => {
+                if (element.classList.contains("btn-secondary")) {
+                    element.classList.remove("btn-secondary")
+                }
+                else {
+                    element.classList.add("btn-secondary")
+                }
+            });
+            console.log(btnClassHandling)
+
+            // или
+            btnClassHandling = document.querySelector(".btn")
+            btnClassHandling.classList.contains("btn-secondary") ? btnClassHandling.classList.remove("btn-secondary") : btnClassHandling.classList.add("btn-secondary")
+            console.log(btnClassHandling)
+
+        // 3. Необходимо удалить класс "dropdown-menu" у элемента, у которого присутствует класс "menu".
+            console.log("3. Необходимо удалить класс 'dropdown-menu' у элемента, у которого присутствует класс 'menu'.")
+            let menuClsHandling = document.querySelectorAll(".menu")
+            console.log(menuClsHandling)
+            menuClsHandling.forEach(element => {
+                if (element.classList.contains("dropdown-menu")) {
+                    element.classList.remove("dropdown-menu")
+                }              
+            });
+            console.log(menuClsHandling)
+
+            // или
+            menuClsHandling = document.querySelector(".menu")
+            if (!menuClsHandling.classList.contains("dropdown-menu")) menuClsHandling.classList.add("dropdown-menu")
+            console.log(menuClsHandling)
+
+        // 4. Используя метод insertAdjacentHTML добавьте после div'a с классом "dropdown" следующую разметку: `<a href="#">link</a>`
+            console.log("4. Используя метод insertAdjacentHTML добавьте после div'a с классом 'dropdown' следующую разметку:  `<a href='#'>link</a>`")
+            const insertAfterElem = document.querySelector(".dropdown")
+            console.log(insertAfterElem)
+            const newLink = document.createElement("a")
+            newLink.text = "link"
+            insertAfterElem.insertAdjacentElement("afterEnd", newLink)
+            
+        // 5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
+            console.log("5. У элемента с id 'dropdownMenuButton' замените id на 'superDropdown'.")
+            const changeElId = document.querySelector("#dropdownMenuButton")
+            console.log("Element id: " + changeElId.id)
+            changeElId.id = "superDropdown"
+            console.log("Element new id: " + changeElId.id)
+
+        // 6. Добавьте атрибут data-dd со значением 3 элементу у которого существует атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
+            console.log("6. Добавьте атрибут data-dd со значением 3 элементу у которого существует атрибут 'aria-labelledby' равный 'dropdownMenuButton' используя dataset.")
+            const attrElHandling = document.querySelector("[aria-labelledby='dropdownMenuButton']")
+            console.log("Has attr data-dd: " + attrElHandling.hasAttribute("data-dd"))
+            attrElHandling.setAttribute("data-dd", 3)
+            console.log("Value of attr data-dd: " + attrElHandling.getAttribute("data-dd"))
+
+        // 7. Удалите атрибут type у элемента с классом "dropdown-toggle".
+            console.log("7. Удалите атрибут type у элемента с классом 'dropdown-toggle'.")
+            const removeElAttr = document.querySelector(".dropdown-toggle")
+            console.log("Has attr type: " + removeElAttr.hasAttribute("type"))
+            removeElAttr.removeAttribute("type")
+            console.log("Has attr type: " + removeElAttr.hasAttribute("type"))
     </script>
 </body>
 </html>
